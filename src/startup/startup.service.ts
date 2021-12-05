@@ -16,4 +16,13 @@ export class StartupService {
       take: 100,
     });
   }
+
+  async setData(): Promise<Startup[]> {
+    let a: Startup[] = data.map((startup) => {
+      let newStartup = this.startupRepository.create(startup);
+      return newStartup;
+    });
+
+    return await this.startupRepository.save(a);
+  }
 }

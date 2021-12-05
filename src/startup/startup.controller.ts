@@ -4,12 +4,15 @@ import { StartupService } from './startup.service';
 
 @Controller('startup')
 export class StartupController {
+  constructor(private readonly startupService: StartupService) {}
 
-    constructor(private readonly startupService: StartupService) {}
+  @Get('all')
+  all(): Promise<Startup[]> {
+    return this.startupService.findAll();
+  }
 
-    @Get('all')
-    all(): Promise<Startup[]> {
-      return this.startupService.findAll();
-    }
-
+  @Get('setData')
+  setData(): Promise<Startup[]> {
+    return this.startupService.setData();
+  }
 }
