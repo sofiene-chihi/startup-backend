@@ -5,16 +5,18 @@ import { Column, Entity,OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 export class Startup {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({default:""})
   name: string;
-  @Column()
-  description: string;
-  @Column()
-  field: string;
+  @Column({default:""})
+  address: string;
   @Column()
   logo: string;
   @Column()
-  turnover: number;
+  lat: string;
+  @Column()
+  lng: string;
+  @Column()
+  img_str: string;
 
   @OneToMany(type => Owner, owner => owner.startup) 
   owners: Owner[];
